@@ -37,7 +37,7 @@ X_train,X_test,y_train,y_test = sklearn.model_selection.train_test_split(X,targe
 X_test,X_validation,y_test,y_validation = sklearn.model_selection.train_test_split(X_test,y_test,test_size=0.4)
 
 
-n_trees = np.arange(1,26,2) #Ya vi que el máximo debe estar entre 1 y 26
+n_trees = np.arange(1,15,1) #Ya vi que el máximo debe estar entre 1 y 15
 f1_test = []
 
 for i, n_tree in enumerate(n_trees):
@@ -57,4 +57,4 @@ a = pd.Series(pesos, index=predictors)
 a.nlargest().plot(kind='barh')
 plt.xlabel('Average Feature Importance')
 plt.title('M = {}, f1_score = {:.2f}'.format(n_trees[np.argmax(f1_test)],f1))
-plt.savefig('figura.png')
+plt.savefig('features.png')
